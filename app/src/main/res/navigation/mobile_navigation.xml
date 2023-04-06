@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.jetpack.dust.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_search"
+            app:destination="@id/navigation_search" >
+
+
+            <argument
+                android:name="hotKey"
+                app:argType="string"
+                android:defaultValue="加班事件"
+                />
+
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.jetpack.dust.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.jetpack.dust.ui.person.PersonFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_person" />
+
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.jetpack.dust.ui.seach.SearchFragment"
+        android:label="搜索"
+        tools:layout="@layout/fragment_person" >
+
+
+        <action android:id="@+id/action_navigation_search_to_navigation_person"
+            app:destination="@id/navigation_notifications"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/navigation_notifications"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+
+
+</navigation>
