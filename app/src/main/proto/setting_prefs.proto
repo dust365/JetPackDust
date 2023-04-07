@@ -1,0 +1,17 @@
+
+/* SearchRequest represents a search query, with pagination options to
+ * indicate which results to include in the response.
+ *  准备使用datastore
+ */
+syntax = "proto3";
+
+option java_package = "com.jetpack.dust";
+//option java_outer_classname = "SettingBean";  //输出的类名
+option java_multiple_files = true;
+
+message SettingPreferences {
+  int32 example_counter = 1;
+  string query = 6;
+  int32 page_number = 2;  // Which page number do we want?
+  int32 result_per_page = 3;  // Number of results to return per page.
+}

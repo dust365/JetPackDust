@@ -1,7 +1,44 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.protobuf'
+
 }
+
+//protobuf {
+//    protoc {
+//        artifact = 'com.google.protobuf:protoc:3.8.0'
+//    }
+//    generateProtoTasks {
+//        all().each { task ->
+//            task.builtins {
+//                java {
+//                    option "lite"
+//                }
+//            }
+//        }
+//    }
+//    //生成目录（注意定期删除 老的不会自动删除）
+//    generatedFilesBaseDir = "$projectDir/src/generated"
+//}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.14.0"
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java {
+                    option 'lite'
+                }
+            }
+        }
+    }
+    //    //生成目录  build/generated/source/proto
+//    generatedFilesBaseDir = "$projectDir/src/generated"
+}
+
 
 android {
     namespace 'com.jetpack.dust'
@@ -33,13 +70,22 @@ android {
     buildFeatures {
         viewBinding true
     }
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java']
+            proto.srcDirs = ['src/main/proto']
+//            proto {
+//                srcDir 'src/main/proto' //指定.proto文件路径
+//            }
+        }
+    }
 }
 
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'com.google.android.material:material:1.6.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
@@ -48,4 +94,12 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //DataStore
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+    implementation("androidx.datastore:datastore-preferences-core:1.0.0")
+    //DataStore sava bean
+    implementation 'com.google.protobuf:protobuf-javalite:3.18.0'
+    implementation 'com.blankj:utilcodex:1.31.1'
+
 }
