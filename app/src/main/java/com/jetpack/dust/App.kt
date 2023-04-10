@@ -10,8 +10,9 @@ import com.jetpack.dust.work.DelayWorker
 import com.jetpack.dust.work.DownloadWorker
 import com.jetpack.dust.work.RenameWorkerFactory
 import com.jetpack.dust.work.UploadWorker
+import dagger.hilt.android.HiltAndroidApp
 import java.time.Duration
-
+@HiltAndroidApp
 class App : Application(), Configuration.Provider {
 
     override fun getWorkManagerConfiguration() =

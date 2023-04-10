@@ -13,10 +13,12 @@ buildscript {
 
     dependencies {
 
-        classpath 'com.android.tools.build:gradle:7.4.0' // 过段时间升级
+        classpath 'com.android.tools.build:gradle:7.4.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0"
         //protobuf3
         classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.17'
+        //hilt
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
     }
 
 }

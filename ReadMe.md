@@ -69,7 +69,18 @@
                 }
             })
 
-
+## hilt 的使用
+* hilt集成 https://developer.android.com/codelabs/android-hilt?hl=zh-cn#2
+* Hilt 使用文章 https://zhuanlan.zhihu.com/p/550393749
+*  参考searchFragment 的快慢引擎写法
+Hilt 常用注解包含
+@HiltAndroidApp、 应用入口切点App
+@AndroidEntryPoint、页面的切点（activity/fragment）
+@Inject、对象构造
+@Module、@InstallIn、
+@Binds 通过构造指定具体类型
+@Provides 直接第三方的提供者，如retrofit
+@EntryPoint 等等。
 
 ## Room
 ## Padding3

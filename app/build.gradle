@@ -3,24 +3,12 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.protobuf'
 
+    //hilt
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+
 }
 
-//protobuf {
-//    protoc {
-//        artifact = 'com.google.protobuf:protoc:3.8.0'
-//    }
-//    generateProtoTasks {
-//        all().each { task ->
-//            task.builtins {
-//                java {
-//                    option "lite"
-//                }
-//            }
-//        }
-//    }
-//    //生成目录（注意定期删除 老的不会自动删除）
-//    generatedFilesBaseDir = "$projectDir/src/generated"
-//}
 
 protobuf {
     protoc {
@@ -119,5 +107,14 @@ dependencies {
 
     //workManager
     implementation "androidx.work:work-runtime-ktx:$work_version"
+
+     //hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+     // 网络
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+//    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
 
 }
